@@ -1,0 +1,31 @@
+﻿<Window x:Class="EducationProgram.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EducationProgram"
+        xmlns:views="clr-namespace:EducationProgram.Views" 
+        xmlns:viewModels="clr-namespace:EducationProgram.ViewModels"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="450" Width="800"  WindowState="Maximized" Icon="Resources/Icons/education.ico">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:EducationViewModel}">
+            <views:EducationView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:AuthorizationViewModel}">
+            <views:AuthorizationView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:RegistrationViewModel}">
+            <views:RegistrationView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:UserProfileViewModel}">
+            <views:UserProfileView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:UserManagmentViewModel}">
+            <views:UserManagmentView />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Cursor="">
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
+</Window>

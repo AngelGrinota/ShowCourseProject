@@ -1,0 +1,68 @@
+﻿<Window x:Class="EducationProgram.Windows.LogoutConfirmationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EducationProgram.Windows"
+        mc:Ignorable="d"
+           Title="Подтверждение выхода"
+    WindowStartupLocation="CenterScreen"
+    SizeToContent="WidthAndHeight"
+    ResizeMode="NoResize"
+    WindowStyle="None" 
+    Background="Transparent"
+    AllowsTransparency="True"
+    Width="400" Height="250">
+
+    <Border Style="{StaticResource CardBorderStyle}"
+        Background="{StaticResource BackgroundBrush}" BorderThickness="2" BorderBrush="{StaticResource PurpleBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок/вопрос -->
+            <TextBlock Grid.Row="0"
+                   Text="Вы точно хотите выйти из аккаунта?"
+                   TextWrapping="Wrap"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="{StaticResource PrimaryBrush}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="20,20,20,10" />
+
+            <!-- Объяснение функционала, который потеряется -->
+            <TextBlock Grid.Row="1"
+                   Text="При выходе вы потеряете возможность проходить тесты, отслеживать прогресс и накапливать очки"
+                   TextWrapping="Wrap"
+                   FontSize="14"
+                   Foreground="{StaticResource SecondaryBrush}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="20,0,20,20" />
+
+            <!-- Кнопки -->
+            <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,20">
+                <Button Content="Да, выйти"
+                    Style="{StaticResource AccentButtonStyle}"
+                Width="120"
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Click="YesButton_Click" 
+                    Cursor="Hand" />
+                <Button Content="Отмена"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="120"
+                    Height="35"
+                    Click="NoButton_Click" 
+                    Cursor="Hand" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

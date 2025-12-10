@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="EducationProgram.Views.UserManagmentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewmodels="clr-namespace:EducationProgram.ViewModels"
+             xmlns:converters="clr-namespace:EducationProgram.Converters"
+             d:DataContext="{d:DesignInstance viewmodels:UserManagmentViewModel}"
+             mc:Ignorable="d" 
+             Background="{StaticResource WhiteForegroundBrush}">
+
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <DockPanel>
+
+        <Border Background="{StaticResource PrimaryBrush}" Height="60" DockPanel.Dock="Top">
+            <Grid>
+                <Image Source="pack://application:,,,/Resources/images/back.png" Width="25" Height="25" Margin="10,0,0,0" Cursor="Hand" ToolTip="Вернуться назад" HorizontalAlignment="Left">
+                    <Image.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding CancelCommand}" />
+                    </Image.InputBindings>
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Opacity" Value="0.5"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="1.0"/>
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1.0" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0.5" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Grid>
+        </Border>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+
+                <Border Background="#FFEEEE" 
+                        BorderBrush="#FF7777" 
+                        BorderThickness="1" 
+                        CornerRadius="4" 
+                        Padding="10" 
+                        Margin="0, -50, 0, 10" 
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        Visibility="{Binding ErrorVisibility}"
+                        MinHeight="40">
+                    <TextBlock Text="{Binding ErrorMessage}" 
+                               Foreground="#D8000C" 
+                               FontWeight="SemiBold" 
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <Border Background="White" CornerRadius="8" Padding="25" 
+                        BorderBrush="#D1C4E9" BorderThickness="1" 
+                        MaxWidth="600" HorizontalAlignment="Stretch" Cursor="">
+                    <StackPanel Width="450">
+                        <TextBlock Text="{Binding WindowTitle}"
+                                    Foreground="{StaticResource PrimaryBrush}"
+                                    FontSize="28"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center" Margin="0,0,0,16"/>
+
+                        <TextBlock Text="Логин" Foreground="#333" Margin="0,0,0,6" FontSize="16"/>
+                        <TextBox Text="{Binding UserLogin}" MaxLength="25" Style="{StaticResource PrimaryTextBoxStyle}" Margin="0,0,0,14" FontSize="16"/>
+
+                        <TextBlock Text="Пароль" Foreground="#333" Margin="0,0,0,6" FontSize="16"/>
+                        <TextBox Text="{Binding UserPassword}" MaxLength="20" Style="{StaticResource PrimaryTextBoxStyle}" Margin="0,0,0,14" FontSize="16"/>
+
+                        <TextBlock Text="Фамилия" Foreground="#333" Margin="0,0,0,6" FontSize="16"/>
+                        <TextBox Text="{Binding UserSurname}" MaxLength="45" Style="{StaticResource PrimaryTextBoxStyle}" Margin="0,0,0,12" FontSize="16"/>
+
+                        <TextBlock Text="Имя" Foreground="#333" Margin="0,0,0,6" FontSize="16"/>
+                        <TextBox Text="{Binding UserName}" MaxLength="45" Style="{StaticResource PrimaryTextBoxStyle}" Margin="0,0,0,12" FontSize="16"/>
+
+                        <TextBlock Text="Отчество" Foreground="#333" Margin="0,0,0,6" FontSize="16"/>
+                        <TextBox Text="{Binding UserPatronymic}" MaxLength="45" Style="{StaticResource PrimaryTextBoxStyle}" Margin="0,0,0,12" FontSize="16"/>
+
+                        <TextBlock Text="Роль" Foreground="#333" Margin="0,0,0,6" FontSize="16"/>
+                        <ComboBox ItemsSource="{Binding Roles}" 
+                                  SelectedItem="{Binding SelectedRole}"
+                                  DisplayMemberPath="RoleName"
+                                  Style="{StaticResource PrimaryComboBoxStyle}"
+                                  ItemContainerStyle="{StaticResource PrimaryComboBoxItemStyle}"
+                                  IsEnabled="{Binding IsRoleEditable}"
+                                  Margin="0,0,0,12" FontSize="16"/>
+
+                        <StackPanel Visibility="{Binding IsGroupVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <TextBlock Text="Группа" Foreground="#333" Margin="0,0,0,6" FontSize="16"/>
+                            <ComboBox ItemsSource="{Binding Groups}" 
+                                      SelectedItem="{Binding SelectedGroup}"
+                                      DisplayMemberPath="GroupName"
+                                      Style="{StaticResource PrimaryComboBoxStyle}"
+                                      ItemContainerStyle="{StaticResource PrimaryComboBoxItemStyle}"
+                                      FontSize="16"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Button Content="Сохранить" Command="{Binding SaveCommand}" 
+                            Style="{StaticResource AccentButtonStyle}" Width="150" Height="45" Margin="0,0,15,0" FontSize="16"/>
+                            <Button Content="Отмена" Command="{Binding CancelCommand}" 
+                            Style="{StaticResource SecondaryButtonStyle}" Width="150" Height="45" FontSize="16"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+
+    </DockPanel>
+</UserControl>

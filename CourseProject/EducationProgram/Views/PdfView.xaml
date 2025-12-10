@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="EducationProgram.Views.PdfView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EducationProgram.Views"
+             xmlns:viewmodels="clr-namespace:EducationProgram.ViewModels"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance viewmodels:PdfViewerViewModel}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" x:Name="PdfScrollViewer"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto"
+                      PanningMode="Both"
+                      Background="#E5E5E5" Padding="20"
+                      CanContentScroll="False">
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border BorderThickness="1" BorderBrush="{StaticResource PurpleBrush}">
+                <Image x:Name="PageImage" Stretch="Uniform" MaxWidth="800" MaxHeight="800" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Source="{Binding CurrentPageImage}">
+                    <Image.LayoutTransform>
+                        <ScaleTransform ScaleX="{Binding CurrentZoom}" ScaleY="{Binding CurrentZoom}"/>
+                    </Image.LayoutTransform>
+                </Image>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+
+        <Border Grid.Row="1" 
+                Background="{StaticResource WhiteForegroundBrush}"
+                CornerRadius="10"
+                BorderBrush="{StaticResource SecondaryButtonBaseBorder}"
+                BorderThickness="1"
+                Padding="15,10"
+                Margin="20"
+                HorizontalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                <Button Content="◀ Назад" 
+                        Command="{Binding PreviousPageCommand}" 
+                        IsEnabled="{Binding CanGoToPreviousPage}"
+                        Style="{StaticResource SecondaryButtonStyle}" 
+                        Margin="0,0,10,0"
+                        Width="80" Height="50" Cursor="Hand"/>
+
+                <TextBlock Text="{Binding PageInfoText}" 
+                           VerticalAlignment="Center" 
+                           FontSize="16" 
+                           Width="60"
+                           TextAlignment="Center"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource SecondaryBrush}"/>
+
+                <Button Content="Вперед ▶" 
+                        Command="{Binding NextPageCommand}" 
+                        IsEnabled="{Binding CanGoToNextPage}"
+                        Style="{StaticResource SecondaryButtonStyle}" 
+                        Margin="10,0,30,0"
+                        Width="80" Height="50" Cursor="Hand"/>
+
+                <Rectangle Width="1" 
+                           Height="25" 
+                           Fill="{StaticResource SecondaryButtonBaseBorder}" 
+                           Margin="0,0,30,0"/>
+
+                <Button Content="−" 
+                        Command="{Binding ZoomOutCommand}" 
+                        Width="35" Height="35"
+                        Style="{StaticResource BaseTransparentButtonStyle}" 
+                        Foreground="{StaticResource SecondaryBrush}"
+                        FontSize="18"
+                        Margin="0,0,5,0"/>
+
+                <TextBlock Text="{Binding ZoomStatusText}" 
+                           VerticalAlignment="Center" 
+                           Width="50" 
+                           TextAlignment="Center"
+                           Style="{StaticResource CenteredTextStyle}" 
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource SecondaryBrush}"/>
+
+                <Button Content="+" 
+                        Command="{Binding ZoomInCommand}" 
+                        Width="35" Height="35"
+                        Style="{StaticResource BaseTransparentButtonStyle}" 
+                        Foreground="{StaticResource SecondaryBrush}"
+                        FontSize="18"
+                        Margin="5,0,0,0"/>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

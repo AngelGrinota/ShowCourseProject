@@ -1,0 +1,161 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Icons\education.ico" />
+    <None Remove="Resources\Images\back.png" />
+    <None Remove="Resources\Images\delete.png" />
+    <None Remove="Resources\Images\eye_close.png" />
+    <None Remove="Resources\Images\eye_open.png" />
+    <None Remove="Resources\Images\forward.png" />
+    <None Remove="Resources\Images\login.png" />
+    <None Remove="Resources\Images\logout.png" />
+    <None Remove="Resources\Images\menu.png" />
+    <None Remove="Resources\Images\paragraph.png" />
+    <None Remove="Resources\Images\rating.png" />
+    <None Remove="Resources\Images\tests.png" />
+    <None Remove="Resources\Images\users.png" />
+    <None Remove="Resources\Lectures\Пунктуация\Знаки препинания в простом предложении\Обособленные члены предложения.pdf" />
+    <None Remove="Resources\Lectures\Пунктуация\Знаки препинания в простом предложении\Однородные члены предложения.pdf" />
+    <None Remove="Resources\Lectures\Пунктуация\Знаки препинания в простом предложении\Сравнительный оборот.pdf" />
+    <None Remove="Resources\Lectures\Пунктуация\Знаки препинания в простом предложении\Тире между подлежащим и сказуемым.pdf" />
+    <None Remove="Resources\Lectures\Пунктуация\Знаки препинания в сложном предложении\Бессоюзное сложное предложение.pdf" />
+    <None Remove="Resources\Lectures\Пунктуация\Знаки препинания в сложном предложении\Сложноподчинённое предложение.pdf" />
+    <None Remove="Resources\Lectures\Пунктуация\Знаки препинания в сложном предложении\Сложносочинённое предложение.pdf" />
+    <None Remove="Resources\Lectures\Пунктуация\Прямая речь и диалоги\Диалог.pdf" />
+    <None Remove="Resources\Lectures\Пунктуация\Прямая речь и диалоги\Прямая речь.pdf" />
+    <None Remove="Resources\Lectures\Пунктуация\Прямая речь и диалоги\Цитаты.pdf" />
+    <None Remove="Resources\Lectures\Синтаксис\Простое предложение\Второстепенные члены предложения.pdf" />
+    <None Remove="Resources\Lectures\Синтаксис\Простое предложение\Главные члены предложения.pdf" />
+    <None Remove="Resources\Lectures\Синтаксис\Простое предложение\Классификация односоставных предложений.pdf" />
+    <None Remove="Resources\Lectures\Синтаксис\Простое предложение\Предложение как коммуникативная единица языка.pdf" />
+    <None Remove="Resources\Lectures\Синтаксис\Словосочетание\Классификация словосочетания.pdf" />
+    <None Remove="Resources\Lectures\Синтаксис\Сложное предложение\Бессоюзное сложное предложение.pdf" />
+    <None Remove="Resources\Lectures\Синтаксис\Сложное предложение\Сложное предложение.pdf" />
+    <None Remove="Resources\Lectures\Синтаксис\Сложное предложение\Сложноподчиненное предложение.pdf" />
+    <None Remove="Resources\Lectures\Синтаксис\Сложное предложение\Сложносочиненное предложение.pdf" />
+    <None Remove="Resources\Lectures\Словосочетание.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Icons\education.ico" />
+    <Resource Include="Resources\Images\delete.png" />
+    <Resource Include="Resources\Images\edit.png" />
+    <Resource Include="Resources\Images\eye_close.png" />
+    <Resource Include="Resources\Images\eye_open.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\menu.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="PdfiumViewer" Version="2.13.0" />
+    <PackageReference Include="PdfiumViewer.Native.x86_64.v8-xfa" Version="2018.4.8.256" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\back.png" />
+    <Resource Include="Resources\Images\forward.png" />
+    <Resource Include="Resources\Images\login.png" />
+    <Resource Include="Resources\Images\logout.png" />
+    <Resource Include="Resources\Images\paragraph.png" />
+    <Resource Include="Resources\Images\tests.png" />
+    <Content Include="Resources\Lectures\Пунктуация\Знаки препинания в простом предложении\Обособленные члены предложения.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Знаки препинания в простом предложении\Однородные члены предложения.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Знаки препинания в простом предложении\СГНЕСЕ.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Знаки препинания в простом предложении\Сравнительный оборот.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Знаки препинания в простом предложении\Тире между подлежащим и сказуемым.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Знаки препинания в сложном предложении\Бессоюзное сложное предложение.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Знаки препинания в сложном предложении\Сложноподчинённое предложение.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Знаки препинания в сложном предложении\Сложносочинённое предложение.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Прямая речь и диалоги\Диалог.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Прямая речь и диалоги\Прямая речь.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Пунктуация\Прямая речь и диалоги\Цитаты.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Осложнённое предложение\ПСВИВЕ.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Осложнённое предложение\ПООИОЧ.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Простое предложение\Второстепенные члены предложения.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Простое предложение\Главные члены предложения.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Простое предложение\Классификация односоставных предложений.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Простое предложение\Предложение как коммуникативная единица языка.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Словосочетание\Классификация словосочетания.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Словосочетание\СКНЕЯИСС.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Сложное предложение\Бессоюзное сложное предложение.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Сложное предложение\Сложное предложение.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Сложное предложение\Сложноподчиненное предложение.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lectures\Синтаксис\Сложное предложение\Сложносочиненное предложение.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+</Project>
